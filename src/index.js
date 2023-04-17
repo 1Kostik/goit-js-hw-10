@@ -41,10 +41,12 @@ function onInput(event) {
       notifyInfoError();
     });
 }
+
 function generatContent(elements) {
   let drawCountrys = '';
   let refsCountrys = '';
   clearInputValue();
+
   if (elements.length === 1) {
     drawCountrys = creatCountryInfo(elements);
     refsCountrys = refs.countryInfo;
@@ -67,6 +69,7 @@ function creatCountryInfo(element) {
   </ul>`
   );
 }
+
 function creatListCountrys(element) {
   return element.map(
     ({ flags, name }) => `
@@ -75,16 +78,20 @@ function creatListCountrys(element) {
   `
   );
 }
+
 function clearInputValue() {
   refs.countryInfo.innerHTML = '';
   refs.countryList.innerHTML = '';
 }
+
 function notifyInfo() {
   Notify.info('Too many matches found. Please enter a more specific name.');
 }
+
 function notifyInfoError() {
   Notify.failure('Oops, there is no country with that name');
 }
+
 function drawOnPage(refs, markup) {
   refs.innerHTML = markup;
 }
