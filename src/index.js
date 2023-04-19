@@ -49,17 +49,17 @@ function onInput(event) {
 
 function generatContent(elements) {
   let drawCountrys = '';
-  let refsCountrys = '';
+  let ref = '';
   clearInputValue();
 
   if (elements.length === 1) {
     drawCountrys = creatCountryInfo(elements);
-    refsCountrys = refs.countryInfo;
+    ref = refs.countryInfo;
   } else {
     drawCountrys = creatListCountrys(elements);
-    refsCountrys = refs.countryList;
+    ref = refs.countryList;
   }
-  drawOnPage(refsCountrys, drawCountrys);
+  drawOnPage(ref, drawCountrys);
 }
 
 function creatCountryInfo(element) {
