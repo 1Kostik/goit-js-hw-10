@@ -27,7 +27,12 @@ function onInput(event) {
     return;
   }
   fetchCountries(name)
-    .then(response => response.json())
+    .then(response => {
+      if (!response.ok) { // Перевіряємо статус відповіді
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    return response.json(); // Повертаємо відповідь у форматі JSON
+  })
     .then(data => {
       if (data.length > 10) {
         notifyInfo();
